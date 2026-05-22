@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duane Alvarez — Barber, Las Vegas | BookdUp</title>
+  <meta name="description" content="Book an appointment with Duane Alvarez, barber in Las Vegas. Text (725) 726-9520 to book. Open Tuesday through Saturday, 10 AM to 6 PM.">
+  <meta name="robots" content="noindex">
+  <meta property="og:title" content="Duane Alvarez — Barber, Las Vegas">
+  <meta property="og:description" content="Text (725) 726-9520 to book an appointment. Tue–Sat 10 AM–6 PM.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0a0a0a;
+      --dark:    #111111;
+      --card:    #1a1a1a;
+      --border:  #2a2a2a;
+      --white:   #ffffff;
+      --gray:    #888888;
+      --accent:  #6c63ff;
+      --accent2: #4ade80;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      padding: 10px 24px; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 14px;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      min-height: 92vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 140px 24px 80px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,0.15) 0%, transparent 70%);
+    }
+    .hero-inner { max-width: 760px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(108,99,255,0.15);
+      border: 1px solid rgba(108,99,255,0.3);
+      color: var(--accent);
+      font-size: 13px; font-weight: 600;
+      padding: 6px 16px; border-radius: 100px;
+      margin-bottom: 28px; letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 12px;
+    }
+    .hero-role {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--gray);
+      margin-bottom: 36px;
+      letter-spacing: 0.5px;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: 18px 36px; border-radius: 10px;
+      text-decoration: none; font-weight: 700; font-size: 16px;
+      transition: transform 0.2s, opacity 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    /* SECTION */
+    .section { padding: 90px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 16px; text-align: center;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800; letter-spacing: -1px;
+      margin-bottom: 48px; text-align: center;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: border-color 0.2s;
+    }
+    .service-card:hover { border-color: var(--accent); }
+    .service-name { font-size: 16px; font-weight: 600; }
+    .service-price { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; }
+
+    /* HOURS */
+    .hours-section {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 90px 24px;
+    }
+    .hours-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+    .hours-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px 32px;
+      margin-top: 24px;
+    }
+    .hours-day { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .hours-time { font-size: 28px; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; margin-bottom: 16px; }
+    .hours-closed { font-size: 14px; color: var(--gray); }
+
+    /* CTA */
+    .cta-section {
+      padding: 100px 24px;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 100%, rgba(108,99,255,0.12) 0%, transparent 70%);
+    }
+    .cta-title { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -1px; margin-bottom: 20px; }
+    .cta-sub { color: var(--gray); font-size: 18px; margin-bottom: 12px; }
+    .cta-phone {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800; letter-spacing: -1px;
+      color: var(--accent);
+      display: inline-block;
+      margin: 20px 0 32px;
+      text-decoration: none;
+    }
+    .cta-phone:hover { opacity: 0.85; }
+    .cta-disclosure {
+      font-size: 13px; color: var(--gray);
+      max-width: 480px; margin: 32px auto 0;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      color: var(--gray); font-size: 14px;
+    }
+    footer a { color: var(--gray); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+    .footer-links { display: flex; gap: 24px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://bookdup.io" class="nav-logo">Bookd<span>Up</span></a>
+    <a href="sms:+17257269520" class="nav-cta">Text to Book</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Las Vegas</div>
+      <h1>Duane Alvarez</h1>
+      <p class="hero-role">Barber</p>
+      <a href="sms:+17257269520" class="btn-primary">Text (725) 726-9520 to Book</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">Services &amp; Pricing</h2>
+    <div class="services-grid">
+      <div class="service-card"><span class="service-name">Haircut</span><span class="service-price">$40</span></div>
+      <div class="service-card"><span class="service-name">Fade</span><span class="service-price">$40</span></div>
+      <div class="service-card"><span class="service-name">Beard Trim</span><span class="service-price">$20</span></div>
+      <div class="service-card"><span class="service-name">Kids Haircut</span><span class="service-price">$40</span></div>
+      <div class="service-card"><span class="service-name">Haircut &amp; Beard</span><span class="service-price">$55</span></div>
+    </div>
+  </section>
+
+  <section class="hours-section">
+    <div class="hours-inner">
+      <div class="section-label">Hours</div>
+      <h2 class="section-title" style="margin-bottom:0">When I'm Open</h2>
+      <div class="hours-block">
+        <div class="hours-day">Tuesday – Saturday</div>
+        <div class="hours-time">10:00 AM – 6:00 PM</div>
+        <div class="hours-closed">Closed Sunday &amp; Monday</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2 class="cta-title">Ready to book?</h2>
+    <p class="cta-sub">Send a text to schedule your appointment.</p>
+    <a href="sms:+17257269520" class="cta-phone">(725) 726-9520</a>
+    <br>
+    <a href="sms:+17257269520" class="btn-primary" style="font-size:18px; padding:20px 48px;">Text to Book Now</a>
+    <p class="cta-disclosure">Replies via automated SMS booking. Message &amp; data rates may apply. Reply STOP to opt out.</p>
+  </section>
+
+  <footer>
+    <div>© 2026 BookdUp. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="https://bukkit187-ux.github.io/bookdup-legal/privacy-policy.html">Privacy Policy</a>
+      <a href="https://bukkit187-ux.github.io/bookdup-legal/terms.html">Terms</a>
+      <a href="mailto:bookduphq@gmail.com">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
