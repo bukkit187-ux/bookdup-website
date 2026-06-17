@@ -44,6 +44,13 @@
       color: var(--white); text-decoration: none;
     }
     .nav-logo span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-link {
+      color: var(--gray); text-decoration: none;
+      font-weight: 600; font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--white); }
     .nav-cta {
       background: var(--accent);
       color: var(--white);
@@ -181,8 +188,13 @@
 <body>
 
   <nav>
-    <a href="https://bookdup.io" class="nav-logo">Bookd<span>Up</span></a>
-    <a href="sms:+17257269520" class="nav-cta">Text to Book</a>
+    <a href="index.html" class="nav-logo">Bookd<span>Up</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="schedule.html" class="nav-link">Schedule</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="mailto:bookduphq@gmail.com" class="nav-cta">Get Started</a>
+    </div>
   </nav>
 
   <section class="hero">
@@ -229,11 +241,11 @@
   </section>
 
   <footer>
-    <div>© 2026 BookdUp. All rights reserved.</div>
+    <div>© 2026 BookdUp</div>
     <div class="footer-links">
-      <a href="https://bukkit187-ux.github.io/bookdup-legal/privacy-policy.html">Privacy Policy</a>
-      <a href="https://bukkit187-ux.github.io/bookdup-legal/terms.html">Terms</a>
-      <a href="mailto:bookduphq@gmail.com">Contact</a>
+      <a href="https://bookdup.io/privacy.html">Privacy Policy</a>
+      <a href="https://bookdup.io/terms.html">Terms of Service</a>
+      <a href="faq.html">FAQ</a>
     </div>
   </footer>
 

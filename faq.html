@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookdUp — FAQ</title>
+  <meta name="description" content="Frequently asked questions about BookdUp — the automated text-based booking line for barbers, stylists, and service pros.">
+  <meta property="og:title" content="BookdUp — FAQ">
+  <meta property="og:description" content="How BookdUp works, pricing, Spanish support, security, and how to get started.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:   #0a0a0a;
+      --dark:    #111111;
+      --card:    #1a1a1a;
+      --border:  #2a2a2a;
+      --white:   #ffffff;
+      --gray:    #888888;
+      --accent:  #6c63ff;
+      --accent2: #4ade80;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-link { color: var(--gray); text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.2s; }
+    .nav-link:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--accent); color: var(--white);
+      padding: 10px 24px; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 14px;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HEADER ── */
+    .faq-head {
+      text-align: center;
+      padding: 160px 24px 60px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,0.15) 0%, transparent 70%);
+    }
+    .faq-head .label {
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+    }
+    .faq-head h1 { font-size: clamp(34px, 6vw, 56px); font-weight: 800; letter-spacing: -1.5px; }
+    .faq-head p { color: var(--gray); font-size: 18px; margin-top: 14px; }
+
+    /* ── FAQ LIST ── */
+    .faq-wrap { max-width: 760px; margin: 0 auto; padding: 20px 24px 80px; }
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px 28px;
+      margin-bottom: 16px;
+    }
+    .faq-item h2 {
+      font-size: 19px; font-weight: 700; margin-bottom: 10px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .faq-item h2 .q { color: var(--accent); flex-shrink: 0; }
+    .faq-item p { color: var(--gray); font-size: 16px; line-height: 1.7; }
+    .faq-item .price-row { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .price-pill {
+      background: rgba(108,99,255,0.12);
+      border: 1px solid rgba(108,99,255,0.3);
+      color: var(--white); font-size: 14px; font-weight: 600;
+      padding: 8px 14px; border-radius: 100px;
+    }
+    .price-pill span { color: var(--accent2); }
+    code {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 7px; border-radius: 6px;
+      font-size: 14px; color: var(--white);
+    }
+
+    /* ── CTA ── */
+    .faq-cta { text-align: center; padding: 20px 24px 90px; }
+    .faq-cta h3 { font-size: clamp(24px, 4vw, 34px); font-weight: 800; letter-spacing: -1px; margin-bottom: 20px; }
+    .btn-primary {
+      background: var(--accent); color: var(--white);
+      padding: 16px 40px; border-radius: 10px;
+      text-decoration: none; font-weight: 700; font-size: 16px;
+      display: inline-block; transition: transform 0.2s, opacity 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      color: var(--gray); font-size: 14px;
+    }
+    footer a { color: var(--gray); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+    .footer-links { display: flex; gap: 24px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Bookd<span>Up</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="schedule.html" class="nav-link">Schedule</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="mailto:bookduphq@gmail.com" class="nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="faq-head">
+    <div class="label">FAQ</div>
+    <h1>Questions, answered.</h1>
+    <p>Everything you need to know about BookdUp.</p>
+  </header>
+
+  <!-- FAQ LIST -->
+  <main class="faq-wrap">
+
+    <div class="faq-item">
+      <h2><span class="q">Q.</span> How does it work?</h2>
+      <p>BookdUp answers your business line 24/7 — entirely by text. Clients text to book, and it confirms the appointment, sends reminders, and fills your slow days automatically. You set it up once and just show up and work.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2><span class="q">Q.</span> Do clients need an app?</h2>
+      <p>No. Clients just send a regular text message — no app, no download, no login, no account. It works on any phone.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2><span class="q">Q.</span> Does it work in Spanish?</h2>
+      <p>Yes. BookdUp automatically detects when a client is writing in Spanish and replies in Spanish — and switches back to English just as easily. Nothing to configure.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2><span class="q">Q.</span> How do I see my schedule?</h2>
+      <p>Text <code>schedule</code> (or <code>agenda</code>) any time and you'll get today's bookings right back. You also get a text the moment a new booking comes in, so you always know your day in context.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2><span class="q">Q.</span> What if a client needs to cancel or reschedule?</h2>
+      <p>They simply reply <code>can't make it</code> (or <code>no puedo ir</code>) and BookdUp takes care of it — opening the slot back up. No awkward phone calls or missed messages.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2><span class="q">Q.</span> How much does it cost?</h2>
+      <p>Simple, flat monthly pricing — no per-booking fees:</p>
+      <div class="price-row">
+        <span class="price-pill">Tier 1 <span>$19.99/mo</span></span>
+        <span class="price-pill">Tier 2 <span>$29.99/mo</span></span>
+        <span class="price-pill">Tier 3 <span>$39.99/mo</span></span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <h2><span class="q">Q.</span> What if I'm running late?</h2>
+      <p>Text <code>delay 15</code> (or <code>tarde 15</code>) and BookdUp lets the affected clients know you're running about 15 minutes behind, with their updated time. Text <code>ready</code> (or <code>listo</code>) when you're back on schedule.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2><span class="q">Q.</span> Is client information secure?</h2>
+      <p>Yes. Client details are encrypted and never sold or shared. Your dashboard is private and password-protected, so only you can see your bookings.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2><span class="q">Q.</span> How do I get started?</h2>
+      <p>Tap <strong>Get Started</strong> or email <a href="mailto:bookduphq@gmail.com" style="color:var(--accent2)">bookduphq@gmail.com</a>. Setup takes about an hour — we build everything for you, then your booking line goes live.</p>
+    </div>
+
+  </main>
+
+  <!-- CTA -->
+  <section class="faq-cta">
+    <h3>Ready to stay fully booked?</h3>
+    <a href="mailto:bookduphq@gmail.com" class="btn-primary">Get BookdUp →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>© 2026 BookdUp</div>
+    <div class="footer-links">
+      <a href="https://bookdup.io/privacy.html">Privacy Policy</a>
+      <a href="https://bookdup.io/terms.html">Terms of Service</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+  </footer>
+
+</body>
+</html>
