@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS Terms &amp; Opt-In — BookdUp</title>
+  <meta name="description" content="How BookdUp's SMS booking service works: opt-in, message frequency, rates, STOP and HELP instructions.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0a0a0a;
+      --dark:    #111111;
+      --card:    #1a1a1a;
+      --border:  #2a2a2a;
+      --white:   #ffffff;
+      --gray:    #888888;
+      --accent:  #6c63ff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+      color: var(--white); text-decoration: none; flex-shrink: 0;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-link {
+      color: var(--gray); text-decoration: none;
+      font-weight: 600; font-size: 14px; transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--white); }
+
+    /* ── CONTENT ── */
+    .doc {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 140px 24px 80px;
+    }
+    .doc h1 {
+      font-size: clamp(32px, 5vw, 44px);
+      font-weight: 800; letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .doc .date { color: var(--gray); font-size: 14px; margin-bottom: 40px; }
+    .doc h2 {
+      font-size: 20px; font-weight: 700;
+      margin-top: 36px; margin-bottom: 12px;
+    }
+    .doc p { color: var(--gray); font-size: 16px; }
+    .doc strong { color: var(--white); font-weight: 700; }
+    .doc a { color: var(--accent); text-decoration: none; }
+    .doc a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      color: var(--gray); font-size: 14px;
+    }
+    footer a { color: var(--gray); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 16px; }
+      .doc { padding-top: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Bookd<span>Up</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+    <h1>SMS Terms &amp; Opt-In</h1>
+    <div class="date">Effective Date: June 29, 2026</div>
+
+    <h2>How You Opt In</h2>
+    <p>You opt in to receive SMS messages from BookdUp when you text a service provider's BookdUp booking number to schedule an appointment. By sending that initial text, you consent to receive booking-related SMS messages from that service provider's BookdUp number.</p>
+
+    <h2>Message Frequency</h2>
+    <p>Message frequency varies based on your booking activity. You may receive: appointment confirmations, appointment reminders (typically one per appointment, sent the day before), and responses to your booking inquiries.</p>
+
+    <h2>Message and Data Rates</h2>
+    <p>Message and data rates may apply. Contact your mobile carrier for details about your plan's messaging rates.</p>
+
+    <h2>How to Opt Out</h2>
+    <p>You can opt out at any time by replying <strong>STOP</strong> to any message. After opting out, you will receive one final confirmation message and no further messages will be sent.</p>
+
+    <h2>How to Get Help</h2>
+    <p>Reply <strong>HELP</strong> to any message, or contact us at <a href="mailto:bookduphq@gmail.com">bookduphq@gmail.com</a>.</p>
+
+    <h2>Who We Are</h2>
+    <p>BookdUp is operated by <strong>BookdUp Labs LLC</strong>. BookdUp provides an automated SMS-based appointment booking service for independent service professionals.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>© 2026 BookdUp</div>
+    <div class="footer-links">
+      <a href="https://bookdup.io/privacy.html">Privacy Policy</a>
+      <a href="https://bookdup.io/terms.html">Terms of Service</a>
+      <a href="https://bookdup.io/sms-terms.html">SMS Terms</a>
+      <a href="mailto:bookduphq@gmail.com">Contact Support</a>
+    </div>
+  </footer>
+
+</body>
+</html>
