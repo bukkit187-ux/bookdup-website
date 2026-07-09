@@ -16,9 +16,10 @@
       --card:    #1a1a1a;
       --border:  #2a2a2a;
       --white:   #ffffff;
-      --gray:    #888888;
+      --gray:    #b8bbc4;
       --accent:  #6c63ff;
       --accent2: #4ade80;
+      --cta:     #ff6b4a;
     }
 
     html { scroll-behavior: smooth; }
@@ -54,7 +55,7 @@
     }
     .nav-link:hover { color: var(--white); }
     .nav-cta {
-      background: var(--accent);
+      background: var(--cta);
       color: var(--white);
       padding: 10px 24px;
       border-radius: 8px;
@@ -118,7 +119,7 @@
     }
     .hero-note { color: var(--gray); font-size: 14px; margin-top: 22px; }
     .btn-primary {
-      background: var(--accent);
+      background: var(--cta);
       color: var(--white);
       padding: 16px 36px; border-radius: 10px;
       text-decoration: none; font-weight: 700; font-size: 16px;
@@ -243,12 +244,15 @@
       padding: 14px; border-radius: 10px;
       font-weight: 700; font-size: 15px;
       text-decoration: none; transition: opacity 0.2s;
+      border: 1.5px solid transparent;
     }
+    /* Tier 1 — secondary but clearly clickable: outline in brand purple */
     .pricing-card:not(.featured) .pricing-btn {
-      background: var(--border); color: var(--white);
+      background: transparent; color: var(--white);
+      border-color: var(--accent);
     }
     .pricing-card.featured .pricing-btn {
-      background: var(--accent); color: var(--white);
+      background: var(--cta); color: var(--white);
     }
     .pricing-btn:hover { opacity: 0.85; }
 
