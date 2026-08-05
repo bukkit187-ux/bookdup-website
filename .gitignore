@@ -1,0 +1,77 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# This repo is PUBLIC and is served as bookdup.io — and its working tree doubles
+# as the agent workspace, so internal files sit right next to deployable pages.
+#
+# Brief 146 hardened this after a `git add -A --dry-run` showed 170 internal
+# files would have been staged, including a Twilio recovery code and a 140-row
+# lead list. Nothing internal has ever actually been committed — this is
+# preventive. It stays preventive only if this file stays committed.
+#
+# Rule of thumb: this repo tracks WEBSITE CONTENT ONLY. If it is not an .html
+# page, CNAME, .nojekyll or README.md, it almost certainly does not belong here.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Credentials and secrets — never commit
+.env
+*.env
+*.env.*
+!.env.example
+
+# Mandatory Credential Injection Protocol temp files
+.tmp-cred-*
+*.tmp-cred
+*token*.txt
+*pat*.txt
+*secret*.txt
+*.keys
+
+# Credential-adjacent filenames. twilio_recovery.txt matched none of the patterns
+# above and would have been committed — hence the broader wording here.
+*recovery*
+*credential*
+
+# Client and lead data — PII plus commercially sensitive contact lists
+*.csv
+memory/
+**/data/*.json
+data/
+
+# Internal agent workspace docs. Every .md in this tree is internal except the
+# repo README, so the rule is deny-by-default rather than a list that has to be
+# updated each time a new doc appears — there are already ~60.
+*.md
+!README.md
+
+# Internal agent state, briefs and tooling
+.openclaw/
+briefs/
+skills/
+agent-bridge/
+
+# Sibling projects that live inside this working tree but are versioned
+# separately. Git treats these as embedded repos, so `git add -A` would stage a
+# bare gitlink rather than their contents — but ignoring them removes the
+# ambiguity and the "adding embedded git repository" warning entirely.
+barber-receptionist/
+bookdup-legal/
+
+# Stale duplicate of the site. Brief 145 removed the one tracked page here after
+# it was found publicly served with pricing that was never real. The remaining
+# files are uncommitted local drafts; keep them out so the orphan cannot return.
+bookdup-website/
+
+# Backups — working files, never part of the deployed site
+*.bak
+*.bak-*
+*_backup_*
+
+# Node modules
+node_modules/
+
+# Temporary files
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
