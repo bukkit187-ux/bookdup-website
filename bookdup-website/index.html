@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BookdUp — Get BookdUp.</title>
-  <meta name="description" content="BookdUp handles your booking line 24/7 so you never miss a client. Automated booking, confirmations, and reminders — for barbers, stylists, trainers, real estate agents, and more.">
-  <meta property="og:title" content="BookdUp — Get BookdUp.">
+  <title>BookdUp ΓÇö Get BookdUp.</title>
+  <meta name="description" content="BookdUp handles your booking line 24/7 so you never miss a client. Automated booking, confirmations, and reminders ΓÇö for barbers, stylists, trainers, real estate agents, and more.">
+  <meta property="og:title" content="BookdUp ΓÇö Get BookdUp.">
   <meta property="og:description" content="Never miss a client again. BookdUp answers your business line, books appointments, and fills your slow days automatically.">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,9 +16,10 @@
       --card:    #1a1a1a;
       --border:  #2a2a2a;
       --white:   #ffffff;
-      --gray:    #888888;
+      --gray:    #b8bbc4;
       --accent:  #6c63ff;
       --accent2: #4ade80;
+      --cta:     #ff6b4a;
     }
 
     html { scroll-behavior: smooth; }
@@ -30,7 +31,7 @@
       line-height: 1.6;
     }
 
-    /* ── NAV ── */
+    /* ΓöÇΓöÇ NAV ΓöÇΓöÇ */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -43,10 +44,18 @@
       font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
       color: var(--white);
       text-decoration: none;
+      flex-shrink: 0;
     }
     .nav-logo span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-link {
+      color: var(--gray); text-decoration: none;
+      font-weight: 600; font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--white); }
     .nav-cta {
-      background: var(--accent);
+      background: var(--cta);
       color: var(--white);
       padding: 10px 24px;
       border-radius: 8px;
@@ -54,10 +63,26 @@
       font-weight: 600;
       font-size: 14px;
       transition: opacity 0.2s;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     .nav-cta:hover { opacity: 0.85; }
+    /* Ghost/outline Log In ΓÇö secondary to the primary Get Started CTA */
+    .nav-login {
+      color: var(--white);
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: border-color 0.2s;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .nav-login:hover { border-color: var(--gray); }
 
-    /* ── HERO ── */
+    /* ΓöÇΓöÇ HERO ΓöÇΓöÇ */
     .hero {
       min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
@@ -92,13 +117,15 @@
     .hero-actions {
       display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
     }
+    .hero-note { color: var(--gray); font-size: 14px; margin-top: 22px; }
     .btn-primary {
-      background: var(--accent);
+      background: var(--cta);
       color: var(--white);
       padding: 16px 36px; border-radius: 10px;
       text-decoration: none; font-weight: 700; font-size: 16px;
       transition: transform 0.2s, opacity 0.2s;
       display: inline-block;
+      white-space: nowrap;
     }
     .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
     .btn-secondary {
@@ -109,10 +136,11 @@
       text-decoration: none; font-weight: 600; font-size: 16px;
       transition: border-color 0.2s;
       display: inline-block;
+      white-space: nowrap;
     }
     .btn-secondary:hover { border-color: var(--gray); }
 
-    /* ── HOW IT WORKS ── */
+    /* ΓöÇΓöÇ SECTIONS ΓöÇΓöÇ */
     .section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
     .section-label {
       font-size: 12px; font-weight: 700; letter-spacing: 2px;
@@ -142,7 +170,13 @@
     .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
     .step p { color: var(--gray); font-size: 15px; line-height: 1.6; }
 
-    /* ── PROBLEM/SOLUTION ── */
+    /* ΓöÇΓöÇ SEE IT LIVE ΓöÇΓöÇ */
+    .demo-section { text-align: center; }
+    .demo-section .section-label,
+    .demo-section .section-title { margin-left: auto; margin-right: auto; }
+    .demo-section .section-sub { margin: 0 auto 36px; }
+
+    /* ΓöÇΓöÇ PROBLEM/SOLUTION ΓöÇΓöÇ */
     .pain-section {
       padding: 80px 24px;
       background: var(--dark);
@@ -169,11 +203,12 @@
     .fix-list li:last-child { border-bottom: none; }
     .fix-list li .icon { color: var(--accent2); font-size: 18px; flex-shrink: 0; margin-top: 2px; }
 
-    /* ── PRICING ── */
+    /* ΓöÇΓöÇ PRICING ΓöÇΓöÇ */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px; margin-top: 20px;
+      max-width: 760px;
     }
     .pricing-card {
       background: var(--card);
@@ -195,7 +230,7 @@
     .pricing-name { font-size: 14px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
     .pricing-price { font-size: 42px; font-weight: 800; letter-spacing: -1px; margin-bottom: 4px; }
     .pricing-price span { font-size: 16px; font-weight: 400; color: var(--gray); }
-    .pricing-monthly { color: var(--gray); font-size: 14px; margin-bottom: 28px; }
+    .pricing-desc { color: var(--gray); font-size: 14px; margin-bottom: 24px; }
     .pricing-features { list-style: none; margin-bottom: 32px; }
     .pricing-features li {
       padding: 9px 0;
@@ -203,22 +238,25 @@
       font-size: 15px; display: flex; align-items: center; gap: 10px;
     }
     .pricing-features li:last-child { border-bottom: none; }
-    .pricing-features li::before { content: '✓'; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+    .pricing-features li::before { content: 'Γ£ô'; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
     .pricing-btn {
       display: block; text-align: center;
       padding: 14px; border-radius: 10px;
       font-weight: 700; font-size: 15px;
       text-decoration: none; transition: opacity 0.2s;
+      border: 1.5px solid transparent;
     }
+    /* Tier 1 ΓÇö secondary but clearly clickable: outline in brand purple */
     .pricing-card:not(.featured) .pricing-btn {
-      background: var(--border); color: var(--white);
+      background: transparent; color: var(--white);
+      border-color: var(--accent);
     }
     .pricing-card.featured .pricing-btn {
-      background: var(--accent); color: var(--white);
+      background: var(--cta); color: var(--white);
     }
     .pricing-btn:hover { opacity: 0.85; }
 
-    /* ── WHO IT'S FOR ── */
+    /* ΓöÇΓöÇ WHO IT'S FOR ΓöÇΓöÇ */
     .who-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -233,7 +271,7 @@
     .who-icon { font-size: 32px; margin-bottom: 12px; }
     .who-card p { font-size: 14px; font-weight: 600; color: var(--gray); }
 
-    /* ── CTA SECTION ── */
+    /* ΓöÇΓöÇ CTA SECTION ΓöÇΓöÇ */
     .cta-section {
       padding: 100px 24px;
       text-align: center;
@@ -242,7 +280,7 @@
     .cta-section h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
     .cta-section p { color: var(--gray); font-size: 18px; margin-bottom: 40px; }
 
-    /* ── FOOTER ── */
+    /* ΓöÇΓöÇ FOOTER ΓöÇΓöÇ */
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 40px;
@@ -252,15 +290,33 @@
     }
     footer a { color: var(--gray); text-decoration: none; }
     footer a:hover { color: var(--white); }
-    .footer-links { display: flex; gap: 24px; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+    /* ΓöÇΓöÇ MOBILE NAV ΓÇö keep primary CTA fully visible, never clipped ΓöÇΓöÇ */
+    @media (max-width: 600px) {
+      nav { padding: 14px 16px; }
+      .nav-right { gap: 14px; }
+      .nav-link { font-size: 13px; }
+      .nav-link-home { display: none; }   /* logo already returns home */
+      .nav-cta { padding: 9px 16px; font-size: 13px; }
+      .nav-login { padding: 9px 14px; font-size: 13px; }
+    }
+    @media (max-width: 360px) {
+      .nav-link { display: none; }         /* tightest screens: logo + CTA only */
+    }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Bookd<span>Up</span></a>
-    <a href="mailto:bookduphq@gmail.com" class="nav-cta">Get Started</a>
+    <a href="index.html" class="nav-logo">Bookd<span>Up</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link nav-link-home">Home</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="https://barber-receptionist-production.up.railway.app/schedule" class="nav-login">Log In</a>
+      <a href="https://barber-receptionist-production.up.railway.app/onboard" class="nav-cta">Get Started</a>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -268,12 +324,45 @@
     <div class="hero-inner">
       <div class="hero-badge">Now available in Las Vegas</div>
       <h1>Never miss a client.<br><em>Get BookdUp.</em></h1>
-      <p class="hero-sub">BookdUp answers your business line 24/7, books appointments automatically, and fills your slow days — so you can focus on your work.</p>
+      <p class="hero-sub">BookdUp answers your business line 24/7, books appointments automatically, and fills your slow days ΓÇö so you can focus on your work.</p>
       <div class="hero-actions">
-        <a href="mailto:bookduphq@gmail.com" class="btn-primary">Get Started Today</a>
+        <a href="https://barber-receptionist-production.up.railway.app/onboard" class="btn-primary">Get Started Today</a>
         <a href="#pricing" class="btn-secondary">See Pricing</a>
       </div>
+      <p class="hero-note">Setup takes about an hour. We build everything for you.</p>
     </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Three steps. That's it.</h2>
+    <p class="section-sub">You set it up once, then just show up and work.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>You sign up</h3>
+        <p>We set up your booking line and schedule for you.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Clients text to book</h3>
+        <p>No app, no download ΓÇö it works on any phone.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>You show up and work</h3>
+        <p>BookdUp confirms, reminds, and fills slow days automatically.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUR DASHBOARD -->
+  <section class="section demo-section" style="padding-top:0">
+    <div class="section-label">Your Dashboard</div>
+    <h2 class="section-title">See your bookings as they happen.</h2>
+    <p class="section-sub">Every appointment BookdUp books shows up on your private dashboard in real time. Log in any time to see your day.</p>
+    <a href="https://barber-receptionist-production.up.railway.app/schedule" class="btn-primary">Log in to see your schedule ΓåÆ</a>
   </section>
 
   <!-- PROBLEM / SOLUTION -->
@@ -284,125 +373,75 @@
           <div class="section-label">The Problem</div>
           <h2 class="section-title" style="font-size:clamp(24px,3vw,36px)">You're losing clients while you work.</h2>
           <ul class="pain-list">
-            <li><span class="icon">📵</span> Missing texts while your hands are full</li>
-            <li><span class="icon">👻</span> No-shows costing you $30–50 per ghost</li>
-            <li><span class="icon">📆</span> Slow Mondays and Tuesdays sitting empty</li>
-            <li><span class="icon">📲</span> Clients forced to download yet another app</li>
-            <li><span class="icon">🔕</span> Spam calls burying real client requests</li>
+            <li><span class="icon">≡ƒô╡</span> Missing texts while your hands are full</li>
+            <li><span class="icon">≡ƒæ╗</span> No-shows costing you $30ΓÇô50 per ghost</li>
+            <li><span class="icon">≡ƒôå</span> Slow Mondays and Tuesdays sitting empty</li>
+            <li><span class="icon">≡ƒô▓</span> Clients forced to download yet another app</li>
+            <li><span class="icon">≡ƒöò</span> Spam calls burying real client requests</li>
           </ul>
         </div>
         <div>
           <div class="section-label">The Fix</div>
           <h2 class="section-title" style="font-size:clamp(24px,3vw,36px)">BookdUp handles it all.</h2>
           <ul class="fix-list">
-            <li><span class="icon">✓</span> AI answers every text instantly, 24/7</li>
-            <li><span class="icon">✓</span> Reminders sent automatically — no-shows drop</li>
-            <li><span class="icon">✓</span> Monday morning texts fill your slow days</li>
-            <li><span class="icon">✓</span> Clients just text — no app download needed</li>
-            <li><span class="icon">✓</span> Spam filtered, real clients get through</li>
-            <li><span class="icon">&#10003;</span> No app. No updates. No learning curve. BookdUp runs on SMS &#8212; new features go live instantly, nothing to download, no settings menu.</li>
+            <li><span class="icon">Γ£ô</span> AI answers every text instantly, 24/7</li>
+            <li><span class="icon">Γ£ô</span> Reminders sent automatically ΓÇö no-shows drop</li>
+            <li><span class="icon">Γ£ô</span> Monday morning texts fill your slow days</li>
+            <li><span class="icon">Γ£ô</span> Clients just text ΓÇö no app download needed</li>
+            <li><span class="icon">Γ£ô</span> Spam filtered, real clients get through</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- HOW IT WORKS -->
-  <section class="section">
-    <div class="section-label">How It Works</div>
-    <h2 class="section-title">Set up once. Runs forever.</h2>
-    <p class="section-sub">We build everything for you in one session. You just show up and work.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>We set you up</h3>
-        <p>We build your Google Business page, booking system, and AI receptionist — configured with your services, hours, and prices.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Clients text your number</h3>
-        <p>Your business line goes live. Clients text to book — no app download, no login. Just a text.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>BookdUp handles the rest</h3>
-        <p>Appointments confirmed, reminders sent, slow days filled. You check your dashboard between clients.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>You stay fully booked</h3>
-        <p>Every Monday morning, clients who haven't booked get a personal text from you. Slow days become a thing of the past.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- WHO IT'S FOR -->
-  <section class="section" style="padding-top:0">
+  <section class="section">
     <div class="section-label">Who It's For</div>
     <h2 class="section-title">Any professional who books clients.</h2>
     <p class="section-sub">If you take appointments, BookdUp works for you.</p>
     <div class="who-grid">
-      <div class="who-card"><div class="who-icon">✂️</div><p>Barbers & Stylists</p></div>
-      <div class="who-card"><div class="who-icon">💅</div><p>Nail & Lash Techs</p></div>
-      <div class="who-card"><div class="who-icon">💪</div><p>Personal Trainers</p></div>
-      <div class="who-card"><div class="who-icon">🏠</div><p>Real Estate Agents</p></div>
-      <div class="who-card"><div class="who-icon">📸</div><p>Photographers</p></div>
-      <div class="who-card"><div class="who-icon">🧘</div><p>Massage & Wellness</p></div>
-      <div class="who-card"><div class="who-icon">🔧</div><p>Home Service Pros</p></div>
-      <div class="who-card"><div class="who-icon">⚡</div><p>And More</p></div>
+      <div class="who-card"><div class="who-icon">Γ£é∩╕Å</div><p>Barbers & Stylists</p></div>
+      <div class="who-card"><div class="who-icon">≡ƒÆà</div><p>Nail & Lash Techs</p></div>
+      <div class="who-card"><div class="who-icon">≡ƒÆ¬</div><p>Personal Trainers</p></div>
+      <div class="who-card"><div class="who-icon">≡ƒÅá</div><p>Real Estate Agents</p></div>
+      <div class="who-card"><div class="who-icon">≡ƒô╕</div><p>Photographers</p></div>
+      <div class="who-card"><div class="who-icon">≡ƒºÿ</div><p>Massage & Wellness</p></div>
+      <div class="who-card"><div class="who-icon">≡ƒöº</div><p>Home Service Pros</p></div>
+      <div class="who-card"><div class="who-icon">ΓÜí</div><p>And More</p></div>
     </div>
   </section>
 
   <!-- PRICING -->
   <section class="section" id="pricing">
     <div class="section-label">Pricing</div>
-    <h2 class="section-title">One setup. One low monthly fee.</h2>
-    <p class="section-sub">If BookdUp doesn't fill at least one extra appointment in your first month, we'll refund you.</p>
+    <h2 class="section-title">Simple monthly pricing.</h2>
+    <p class="section-sub">Flat monthly pricing ΓÇö no per-booking fees, no setup cost.</p>
     <div class="pricing-grid">
 
       <div class="pricing-card">
-        <div class="pricing-name">Starter</div>
-        <div class="pricing-price">$197 <span>one-time setup</span></div>
-        <div class="pricing-monthly">then $19.99/month</div>
+        <div class="pricing-name">Tier 1</div>
+        <div class="pricing-price">$19.99 <span>/month</span></div>
+        <div class="pricing-desc">Booking, reminders, schedule by text. No deposits.</div>
         <ul class="pricing-features">
-          <li>Local area code business line</li>
-          <li>AI receptionist — 24/7 booking</li>
-          <li>Appointment confirmations</li>
+          <li>SMS booking, 24/7</li>
+          <li>English + Spanish</li>
           <li>Automated reminders</li>
-          <li>Spam call filtering</li>
-          <li>Phone dashboard</li>
+          <li>Schedule by text</li>
         </ul>
-        <a href="mailto:bookduphq@gmail.com" class="pricing-btn">Get Started</a>
+        <a href="https://barber-receptionist-production.up.railway.app/onboard" class="pricing-btn">Get Started</a>
       </div>
 
       <div class="pricing-card featured">
         <div class="featured-badge">Most Popular</div>
-        <div class="pricing-name">Full Setup</div>
-        <div class="pricing-price">$297 <span>one-time setup</span></div>
-        <div class="pricing-monthly">then $19.99/month</div>
+        <div class="pricing-name">Tier 2</div>
+        <div class="pricing-price">$34.99 <span>/month</span></div>
+        <div class="pricing-desc">Everything in Tier 1, plus take deposits when clients book.</div>
         <ul class="pricing-features">
-          <li>Everything in Starter</li>
-          <li>Personal Google Business page</li>
-          <li>Square booking integration</li>
-          <li>Google Calendar sync</li>
-          <li>Stripe deposit collection</li>
-          <li>Zero double bookings</li>
+          <li>Everything in Tier 1</li>
+          <li>Take deposits when clients book</li>
         </ul>
-        <a href="mailto:bookduphq@gmail.com" class="pricing-btn">Get Started</a>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pricing-name">Premium</div>
-        <div class="pricing-price">$397 <span>one-time setup</span></div>
-        <div class="pricing-monthly">then $19.99/month</div>
-        <ul class="pricing-features">
-          <li>Everything in Full Setup</li>
-          <li>Slow day auto-texts (Mondays)</li>
-          <li>Monthly performance check-in</li>
-          <li>Priority support</li>
-          <li>First to get new features</li>
-        </ul>
-        <a href="mailto:bookduphq@gmail.com" class="pricing-btn">Get Started</a>
+        <a href="https://barber-receptionist-production.up.railway.app/onboard" class="pricing-btn">Get Started</a>
       </div>
 
     </div>
@@ -411,17 +450,19 @@
   <!-- CTA -->
   <section class="cta-section">
     <h2>Ready to stay fully booked?</h2>
-    <p>Join the professionals already using BookdUp.<br>Setup takes one hour. Results start immediately.</p>
-    <a href="mailto:bookduphq@gmail.com" class="btn-primary" style="font-size:18px; padding:18px 48px;">Get BookdUp →</a>
+    <p>Join the professionals already using BookdUp.<br>Setup takes about an hour. We build everything for you.</p>
+    <a href="https://barber-receptionist-production.up.railway.app/onboard" class="btn-primary" style="font-size:18px; padding:18px 48px;">Get BookdUp ΓåÆ</a>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div>© 2026 BookdUp. All rights reserved.</div>
+    <div>┬⌐ 2026 BookdUp</div>
     <div class="footer-links">
-      <a href="https://bukkit187-ux.github.io/bookdup-legal/privacy-policy.html">Privacy Policy</a>
-      <a href="https://bukkit187-ux.github.io/bookdup-legal/terms.html">Terms</a>
-      <a href="mailto:bookduphq@gmail.com">Contact</a>
+      <a href="https://bookdup.io/privacy.html">Privacy Policy</a>
+      <a href="https://bookdup.io/terms.html">Terms of Service</a>
+      <a href="https://bookdup.io/sms-terms.html">SMS Terms</a>
+      <a href="faq.html">FAQ</a>
+      <a href="mailto:bookduphq@gmail.com">Contact Support</a>
     </div>
   </footer>
 
