@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How BookdUp Works — BookdUp</title>
+  <meta name="description" content="Learn how BookdUp's SMS opt-in process works — how clients receive their provider's number, how they opt in, and what happens before any messages are sent.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0a0a0a;
+      --dark:    #111111;
+      --card:    #1a1a1a;
+      --border:  #2a2a2a;
+      --white:   #ffffff;
+      --gray:    #b8bbc4;
+      --accent:  #6c63ff;
+      --accent2: #4ade80;
+      --cta:     #ff6b4a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+    }
+    .logo { font-size: 20px; font-weight: 700; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    nav a.nav-link { color: var(--gray); text-decoration: none; font-size: 14px; }
+    nav a.nav-link:hover { color: var(--white); }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 72px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      color: var(--gray);
+      font-size: 17px;
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    p {
+      color: var(--gray);
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── MOCK MESSAGE CARD ── */
+    .mock-message {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 32px 0;
+      position: relative;
+    }
+    .mock-message::before {
+      content: 'Example — what clients receive';
+      position: absolute;
+      top: -11px;
+      left: 20px;
+      background: var(--card);
+      padding: 0 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .mock-sender {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .mock-body {
+      font-size: 15px;
+      color: var(--white);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .mock-body .es {
+      color: var(--gray);
+      margin-top: 10px;
+    }
+    .mock-footer {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+    .mock-footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .mock-footer a:hover { text-decoration: underline; }
+
+    /* ── NUMBERED STEPS ── */
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .steps li {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .steps li:last-child { border-bottom: none; padding-bottom: 0; }
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .step-text {
+      color: var(--gray);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .step-text strong { color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy {
+      color: #444;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Bookd<span>Up</span></a>
+    <a href="index.html" class="nav-link">← Back to Home</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="page-hero">
+      <h1>How BookdUp Works</h1>
+      <p>How clients receive their provider's number, how they opt in, and what happens before any appointment messages are sent.</p>
+    </div>
+
+    <!-- Section 1: How clients get the number -->
+    <section>
+      <h2>How Clients Receive the Booking Number</h2>
+      <p>Each BookdUp provider — for example, a barber — has their own dedicated text number. Clients receive this number directly from their provider: in person, by text, or through the provider's own business page or social media when they're ready to schedule an appointment.</p>
+      <p>BookdUp does not publicly list provider numbers or contact clients who haven't already been given a number directly by their provider.</p>
+    </section>
+
+    <!-- Section 2: Visual example -->
+    <section>
+      <h2>What Clients Receive</h2>
+      <p>When a client texts their provider's BookdUp number for the first time, they receive a disclosure message before any booking or informational content is sent. Here is an example of what that message looks like:</p>
+
+      <div class="mock-message">
+        <div class="mock-sender">Via Text · Your Provider's BookdUp Number</div>
+        <div class="mock-body">
+          <p style="color:var(--white); margin-bottom:10px;">[ProviderName] uses BookdUp for appointment reminders. Reply YES to receive texts, NO to opt out.</p>
+          <p class="es">[ProviderName] usa BookdUp para recordatorios de citas. Responde SÍ para recibir mensajes, NO para no recibirlos.</p>
+        </div>
+        <div class="mock-footer">
+          Message frequency varies. Msg &amp; data rates may apply. Reply HELP for help or STOP to cancel.
+          <br>
+          <a href="https://bookdup.io/privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+          <a href="https://bookdup.io/sms-terms.html">SMS Terms</a>
+        </div>
+      </div>
+
+      <p>BookdUp serves clients in both English and Spanish. The reply the client sends — YES or SÍ — determines which language their appointment messages will be sent in.</p>
+    </section>
+
+    <!-- Section 3: Step-by-step opt-in -->
+    <section>
+      <h2>The Opt-In Process, Step by Step</h2>
+      <ol class="steps">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Client receives the number.</strong> The client gets their provider's dedicated BookdUp number directly from the provider — in person, by text, or via the provider's business page or social media.</div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Client texts the number.</strong> The client texts that number to request an appointment.</div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Disclosure is sent.</strong> BookdUp automatically replies with a disclosure of the SMS service and asks the client to reply YES — or SÍ in Spanish — to confirm they want to receive appointment texts.</div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-text"><strong>Explicit confirmation required.</strong> Only after the client replies YES or SÍ does BookdUp proceed with appointment scheduling. No booking-related or informational messages are sent before this step.</div>
+        </li>
+      </ol>
+    </section>
+
+  </div><!-- /container -->
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="https://bookdup.io/privacy.html">Privacy Policy</a>
+        <a href="https://bookdup.io/sms-terms.html">SMS Terms</a>
+      </div>
+      <p class="footer-copy">© 2026 BookdUp Labs LLC</p>
+    </div>
+  </footer>
+
+</body>
+</html>
