@@ -47,6 +47,9 @@ data/
 briefs/
 skills/
 agent-bridge/
+bookdup-learning/
+hooks/
+state/
 
 # Sibling projects that live inside this working tree but are versioned
 # separately. Git treats these as embedded repos, so `git add -A` would stage a
